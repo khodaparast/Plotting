@@ -262,4 +262,37 @@ def biaplotOfDataset():
 
 # scatterplotOfDataset()
 # --------------------------------------------------------------------------------------------------------------------
+# pie chart
+# import the pyplot library
+
+import matplotlib.pyplot as plotter
+
+# pieLabels = 'Female/Single', 'Female/Married', 'Male/Single', 'Male/Married',
+# populationShare = [70,  3, 678, 18]
+# figureObject, axesObject = plotter.subplots()
+# cmap = plt.get_cmap('Spectral')
+# colors = [cmap(i) for i in np.linspace(0, 1, 8)]
+# axesObject.pie(populationShare, labels=pieLabels,autopct='%1.2f',startangle=90,colors=colors)
+# axesObject.axis('equal')
+
+# plotter.show()
+# --------------------------------------------------------------------------
+# pie chart 2
+
+
+counts = pd.Series([70,  3, 678, 18], index=['Female/Single', 'Female/Married', 'Male/Married', 'Male/Single'])
+# counts = pd.Series([386, 114, 390, 483, 702, 791], index=['0_4', '4_8', '8_12', '12_16', '16_20', '20_24'])
+
+# explode = (0, 0, 0, 0,0, 0)
+explode = (0.1, 0.1, 0.1, 0.1)
+# colors = ['#191970', '#001CF0', '#0038E2', '#0055D4', '#008DB8', '#00AAAA']
+colors = ['#191970','#00FF80', '#001CF0', '#00AAAA'   ]
+# colors = ['#191970', '#001CF0', '#0038E2', '#0055D4', '#0071C6', '#008DB8', '#00AAAA', '#00C69C', '#00E28E', '#00FF80' ]
+counts.plot(kind='pie', fontsize=17,autopct='%1.2f', colors=colors, explode=explode)
+plt.axis('equal')
+# plt.ylabel('Programming Time')
+plt.ylabel('')
+plt.legend(labels=counts.index, loc="best")
+plt.show()
+# --------------------------------------------------------------------------
 
